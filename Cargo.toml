@@ -1,0 +1,6 @@
+[package]
+name = "practice_file2"
+version = "0.1.0"
+authors = ["Jack <jsjutzi@gmail.com>"]
+
+[dependencies]
