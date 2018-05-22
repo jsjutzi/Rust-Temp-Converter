@@ -44,6 +44,16 @@ fn gcd (mut n: u64, mut m: u64) -> u64 {
         }
         m = m % n;
     }
-    /* return keyword isn't necessary in Rust, the last statement in a function is the default return value*/
+    /* return keyword isn't necessary in Rust, the last statement in a function that isn't followed by a semicolon is the default return value*/
     n
+}
+
+/*Testing is built into rust and can be executed using the #[test] notation as below.  Upon compiling, any function with the #[test] header
+  is ignored.  However, running the cargo test command anywhere in the directory will execute all notated test in the program.
+*/
+
+#[test]
+fn test_gcd() {
+    assert_eq!(gcd(14, 15), 1);
+
 }
