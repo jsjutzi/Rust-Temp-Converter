@@ -49,7 +49,7 @@ fn gcd (mut n: u64, mut m: u64) -> u64 {
 }
 
 /*Testing is built into rust and can be executed using the #[test] notation as below.  Upon compiling, any function with the #[test] header
-  is ignored.  However, running the cargo test command anywhere in the directory will execute all notated test in the program.
+  is ignored.  However, running the cargo test command anywhere in the directory will execute all notated test in the program. SSH
 */
 
 #[test]
