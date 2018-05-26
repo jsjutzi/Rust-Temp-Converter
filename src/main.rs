@@ -19,9 +19,10 @@ fn main(){
     println!("{} degress in Farenheit is equal to {} degrees in Celsius", guess, celsius);
 
     let denominator = gcd(4, 8);
-    let checker = check_number();
+    // let checker = check_number();
 
-    println!("The greates common denominator of 4 and 8 is {}", denominator, checker)
+    println!("The greates common denominator of 4 and 8 is {}", denominator);
+
 }
 
 fn transfer_temp(farenheit: i32) -> i32 {
@@ -62,6 +63,7 @@ fn test_gcd() {
     assert_eq!(gcd(14, 15), 1);
 
 }
+//Use snake case for variable names
 
 fn check_number() {
     //Vec declares a Vector type, comparable to Array in JS or list in Python
@@ -72,9 +74,20 @@ fn check_number() {
         .expect("error passing argument"));
     }
     //Check to see if number has at least one value
-    if number.len() == 0 {
+    if numbers.len() == 0 {
         //"std::io::stderr()" provides standard error output stream to writeln! macro, unwrap() checks to see that the error message itself prints
         writeln!(std::io::stderr(), "Usage: gcd NUMBER ...").unwrap();
         std::process::exit(1);
     }
+
+    let mut d = numbers[0];
+    //& notates that we are BORROWING the elements from numbers for our loop, and ownership remains with numbers
+    //for each loop iteraion, m is a reference to a value in numbers, the *m dereferences the value so it can be used
+    for m in &numbers[1..] {
+        d = gcd(d, *m);
+    }
+
+    println!("The greatest common divisor of {:?} is {}",
+    numbers, d);
 }
+
