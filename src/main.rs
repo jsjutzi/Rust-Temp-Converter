@@ -1,4 +1,8 @@
+//import traites into scope
+
 use std::io;
+use std::io::Write;
+use std::str::FromStr;
 
 //---------------------------------------Function that converts farenheit temp into celsius.  
 fn main(){
@@ -12,11 +16,12 @@ fn main(){
     
     let celsius = transfer_temp(guess);
 
-    println!("{} degress in Farenheit is equal to {} degress in Celsius", guess, celsius);
+    println!("{} degress in Farenheit is equal to {} degrees in Celsius", guess, celsius);
 
     let denominator = gcd(4, 8);
+    let checker = check_number();
 
-    println!("The greates common denominator of 4 and 8 is {}", denominator)
+    println!("The greates common denominator of 4 and 8 is {}", denominator, checker)
 }
 
 fn transfer_temp(farenheit: i32) -> i32 {
@@ -56,4 +61,20 @@ fn gcd (mut n: u64, mut m: u64) -> u64 {
 fn test_gcd() {
     assert_eq!(gcd(14, 15), 1);
 
+}
+
+fn check_number() {
+    //Vec declares a Vector type, comparable to Array in JS or list in Python
+    let mut numbers = Vec::new();
+
+    for arg in std::env::args().skip(1) {
+        numbers.push(u64::from_str(&arg)
+        .expect("error passing argument"));
+    }
+    //Check to see if number has at least one value
+    if number.len() == 0 {
+        //"std::io::stderr()" provides standard error output stream to writeln! macro, unwrap() checks to see that the error message itself prints
+        writeln!(std::io::stderr(), "Usage: gcd NUMBER ...").unwrap();
+        std::process::exit(1);
+    }
 }
